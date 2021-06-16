@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <ul class="title">
+      <li v-for="item" v-bind:class="{ 'active': isActive === '1'}"  @click="change('1')">タブ１</li>
+      <li v-for="item" v-bind:class="{ 'active': isActive === '2'}" @click="change('2')">タブ２</li>
+      <li v-for="item" v-bind:class="{ 'active': isActive === '3'}" @click="change('3')">タブ３</li>
+    </ul>
+    <ul　class="contents">
+      <li v-if="isActive === '1'" >コンテンツ１</li>
+      <li v-else-if="isActive === '2'" >コンテンツ2</li>
+      <li v-else-if="isActive === '3'" >コンテンツ3</li>
+    </ul>
+  </div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        isActive: '1'
+      },
+      methods: {
+        change: function(num){
+          this.isActive = num
+        }
+      }
+    })
+  </script>
+  <style>
+    body{
+      width: 100%;
+    }
+    #app{
+      width: 80%;
+      margin: 0 auto;
+    }
+    .title{
+      display: flex;
+    }
+    .title li{
+      border: 1px solid #bbb;
+      list-style: none;
+      background-color: #fff;
+      padding: 0 10px;
+      
+    }
+    .title li:hover{
+      background-color: black;
+      color: #fff;
+    }
+    .contents{
+      list-style: none;
+    }
+  </style>
+</body>
+
+</html>
