@@ -13,10 +13,10 @@
 <body>
 
   <div id="app">
-    <input type="text" v-model="search">
+    <input type="text" v-model="keyword">
     <table>
-      <tr v-for="users in filter" :key='user.id'>
-        <td v-text="user.name"></td>
+      <tr v-for="users in filter_users" :key="users.id">
+        <td v-text="users.name"></td>
       </tr>
     </table>
 
@@ -50,14 +50,20 @@
           ]
         },
         computed: {
-          filter: function(){
+          filter_users: function () {
             var users = [];
-                 )
+            for (var i in this.users) {
+              var user = this.users[i];
+              if (user.name.includes(this.keyword)) {
+                users.push(user);
+              }
             }
+            return users;
           }
-        }
-      })
-      
+        },
+        
+      });
+
     </script>
 </body>
 </html>
