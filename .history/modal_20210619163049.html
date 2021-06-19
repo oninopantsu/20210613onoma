@@ -35,7 +35,7 @@
     })
     Vue.component('open-modal',{
       template : `
-          <div id="overlay" v-show="showContent" @click.self="clickEvent">
+          <div id="overlay" v-show="showContent" @click.="clickEvent">
       <div id="content">
         <p> <slot></slot></p>
         <button @click="clickEvent">閉じる</button>
