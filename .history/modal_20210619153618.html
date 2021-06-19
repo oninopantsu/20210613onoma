@@ -27,6 +27,8 @@
       methods: {
         openModal: function(){
           this.showContent = true
+          o
+          
         },
         closeModal: function(){
           this.showContent = false
@@ -35,7 +37,7 @@
     })
     Vue.component('open-modal',{
       template : `
-          <div id="overlay" v-show="showContent" @click="clickEvent">
+          <div id="overlay" v-show="showContent">
       <div id="content">
         <p> <slot></slot></p>
         <button @click="clickEvent">閉じる</button>
@@ -75,7 +77,7 @@
       text-align: center;
       position: fixed;
     }
-    #content.modal__back{
+    .modal__back{
       background-color: rgb(0, 0, 0, 0.5);
       width: 100%;
       position: absolute;

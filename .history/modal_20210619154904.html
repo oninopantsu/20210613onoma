@@ -26,7 +26,8 @@
       },
       methods: {
         openModal: function(){
-          this.showContent = true
+          this.showContent = true,
+          this.clickEventn=true
         },
         closeModal: function(){
           this.showContent = false
@@ -35,7 +36,7 @@
     })
     Vue.component('open-modal',{
       template : `
-          <div id="overlay" v-show="showContent" @click="clickEvent">
+          <div id="overlay" v-show="showContent" @click>
       <div id="content">
         <p> <slot></slot></p>
         <button @click="clickEvent">閉じる</button>
